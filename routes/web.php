@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\AssetController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +26,9 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::resource('/admin', AdminController::class);
+    Route::get('/admin/{admin}',[AdminController::class, 'show'])->name('admin.show');
+    Route::resource('/asset', AssetController::class);
+    Route::resource('/staff', StaffController::class);
 });
 
 

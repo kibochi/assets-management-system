@@ -1,24 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<!--start horizontal menu-->
-<div class="horizontal-menu">
-@include('layouts.nav')
-@include('layouts.nav2')
-</div>
-<!--end horizontalmenu-->
+
+    <div id="home">
+        @include('layouts.nav')
+
+        <div class="container">
+            <div class="row ">
+                <div class="col">
+                    <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
+
+                </div>
+            </div>
 
 
-<!--start body wrapper-->
-<div class="container-fluid page-body-wrapper">
-<div class="main-panel">
-<div class="content-wrapper pb-0">
-
-@include('layouts.header')
-</div>
+     
+        </div>
+    </div>
 
 
-</div>
-</div>
-<!--end body wrapper-->
+
+
+
 @endsection
