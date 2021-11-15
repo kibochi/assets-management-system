@@ -1,6 +1,6 @@
 .title2 h2 {
-    color: white;
-    font-weight: 600;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
     text-transform: uppercase;
     font-size: 18px;
 }
@@ -9,9 +9,20 @@
 #staff_account,
 #asset_account,
 #login,
-#register {
+#register ,
+.save{
     background: #f5a623;
     width: 300px;
+}
+
+.modal-content{
+   background-color:#17b978 ; 
+}
+
+.modal-title{
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
 .btn-link,
@@ -19,27 +30,9 @@ a {
     color: rgb(255, 255, 255);
 }
 
-::placeholder {
-    color: white !important;
-}
 
-.dataTables_wrapper .dataTables_length,
-.dataTables_wrapper .dataTables_filter,
-.dataTables_wrapper .dataTables_info,
-.dataTables_wrapper .dataTables_processing,
-.dataTables_wrapper .dataTables_paginate {
-    color: #fff !important;
-}
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
-    cursor: default;
-    color: #fff !important;
-    border: 1px solid transparent;
-    background: transparent;
-    box-shadow: none;
-}
+
 
 .preloader {
     position: fixed;
@@ -70,11 +63,18 @@ a {
     transition: 0.8s ease-out;
 }
 
-.card {
-    background: #435c70;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+.wrap{
+background-color:whitesmoke ;
+padding: 20px;
+border-bottom: 5px solid #17b978;
 }
 
+.card{
+    border-radius: 0px;
+    background: #e0e0e0;
+    border: none;
+    
+}
 
 /* .form {
     position: absolute;
@@ -83,21 +83,13 @@ a {
     transform: translate(-50%, -50%);
 } */
 
-.title h2 {
-    font-weight: 600;
-    font-size: 20px;
-    text-transform: uppercase;
-}
+
 
 .text-login,
 .register {
     color: rgb(255, 255, 255);
 }
 
-.btn:hover {
-    background: #435c70;
-    color: white;
-}
 
 .box {
     display: grid;
@@ -113,10 +105,10 @@ a {
     background-color: #4e657a;
 }
 
-label {
+/* label {
     color: white;
     font-size: 18px;
-}
+} */
 
 .login {
     background: #435c70;

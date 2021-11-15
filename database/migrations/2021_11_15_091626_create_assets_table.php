@@ -15,8 +15,14 @@ class CreateAssetsTable extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('admin_id');
+            $table->string('asset_name');
+            $table->string('tag_id')->unique();
+            $table->string('category');
+            $table->string('purchase_date');
             $table->timestamps();
         });
+        
     }
 
     /**

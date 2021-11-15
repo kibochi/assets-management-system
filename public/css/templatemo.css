@@ -13,7 +13,7 @@ html {
 
 body {
     font-family: Roboto, Helvetica, Arial, sans-serif;
-    background-color: #ffffff;
+    background-color: #e0e0e0;
     overflow: hidden;
     color: rgb(0, 0, 0);
 }
@@ -167,12 +167,12 @@ button:focus {
 .dropdown-item:focus,
 .dropdown-item:hover {
     background-color: #ffffff;
-    color: #000;
+    color: #f5a623;
 }
 
 .navbar-nav a:hover,
 .navbar-nav a:hover i {
-    color: #000000;
+    color: #f5a623;
 }
 
 .nav-item {
@@ -337,21 +337,17 @@ thead {
     padding-right: 15px;
 }
 
-.form-control {
-    background-color: #54657d;
-    color: #fff;
-    border: 0;
-}
+
 
 .form-control:focus {
-    background-color: #60738e;
-    color: #fff;
+   
+   
     border-color: transparent;
     box-shadow: 0 0 0 0.1rem rgb(180, 206, 233, 0.5);
 }
 
 .form-group label {
-    color: #fff;
+   
     margin-bottom: 10px;
 }
 
@@ -391,7 +387,7 @@ thead {
 }
 
 .form-control {
-    padding: 19px 18px;
+   
     border-radius: 0;
     height: 50px;
 }
@@ -505,7 +501,7 @@ input[type="checkbox"] {
     cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
-    background-color: #394e64;
+   
     background-position: center;
     border-radius: 50%;
     box-sizing: border-box;
@@ -517,7 +513,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-    background: url(../img/check-mark.png) #394e64 center no-repeat;
+    background: url(../img/check-mark.png) center no-repeat;
 }
 
 input[type="checkbox"]:focus {

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Http\Requests\StoreAssetRequest;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Staff;
 
 class AssetController extends Controller
 {
@@ -12,9 +15,12 @@ class AssetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Asset $asset)
     {
-        //
+        $user = auth()->user()->id;
+        $admin = User::where('id', $user)->first();
+        $assets = Asset::with('user')->where('admin_id',$user)->get();
+        return view('assets.index',compact('admin','assets','asset'));
     }
 
     /**
@@ -23,8 +29,12 @@ class AssetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        
+        $user = auth()->user()->id;
+        $admin = User::where('id', $user)->first();
+        return view('assets.create',compact('asset','admin'));
+  
     }
 
     /**
@@ -33,9 +43,10 @@ class AssetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAssetRequest $request)
     {
-        //
+        $assets = Asset::create($request->validated());
+        return redirect()->back();
     }
 
     /**
