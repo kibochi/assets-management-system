@@ -1,0 +1,116 @@
+.title2 h2 {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+
+
+.btn-link,
+a {
+    color: rgb(255, 255, 255);
+}
+
+
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    text-align: center;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+}
+
+.loaded {
+    animation: fadeOut 1s forwards ease-in-out;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.hidden {
+    display: none;
+    transition: 0.8s ease-out;
+}
+
+
+
+
+
+
+.title h2 {
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.text-login,
+.register {
+    color: rgb(255, 255, 255);
+}
+
+.btn:hover {
+    background: #d4d5d6;
+    color: white;
+}
+
+.box {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.box-right ::placeholder{
+    color: black !important;
+}
+
+.box-right label{
+    font-weight: 600;
+}
+.box-right {
+  
+    display: grid;
+    place-items: center;
+    background: #17b978;
+    
+}
+
+label {
+    color: rgb(255, 255, 255);
+    font-size: 19px;
+}
+
+.login {
+  
+    outline: none;
+    border: none;
+}
+
+.form {
+    min-width: 300px;
+}
+
+.box-left {
+    /* background:url('../images/back.jpg'); */
+    display: grid;
+    place-items: center;
+    background-size: cover;
+    
+    
+    
+    
+   
+}
+
+.box-left .big-image {}
