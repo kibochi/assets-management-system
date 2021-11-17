@@ -17,7 +17,7 @@ class CreateAssetsTable extends Migration
             $table->id();
             $table->bigInteger('admin_id');
             $table->string('asset_name');
-            $table->string('tag_id')->unique();
+            $table->string('tag_id');
             $table->string('category');
             $table->string('purchase_date');
             $table->timestamps();

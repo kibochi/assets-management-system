@@ -19,8 +19,8 @@ class AssetController extends Controller
     {
         $user = auth()->user()->id;
         $admin = User::where('id', $user)->first();
-        $assets = Asset::with('user')->where('admin_id',$user)->get();
-        return view('assets.index',compact('admin','assets','asset'));
+        $sets = Asset::with('user')->where('admin_id',$user)->get();
+        return view('assets.index',compact('admin','sets','asset'));
     }
 
     /**
@@ -57,7 +57,9 @@ class AssetController extends Controller
      */
     public function show(Asset $asset)
     {
-        //
+        $user = auth()->user()->id;
+        $admin = User::where('id', $user)->first();
+        return view('assets.show',compact('asset','admin'));
     }
 
     /**
@@ -78,9 +80,10 @@ class AssetController extends Controller
      * @param  \App\Models\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Asset $asset)
+    public function update(StoreAssetRequest $request, Asset $asset)
     {
-        //
+        $asset->update($request->validated());
+        return redirect()->back();
     }
 
     /**
@@ -91,6 +94,7 @@ class AssetController extends Controller
      */
     public function destroy(Asset $asset)
     {
-        //
+        $asset->delete();
+        return redirect('/asset');
     }
 }

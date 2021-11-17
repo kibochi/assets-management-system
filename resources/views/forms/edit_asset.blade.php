@@ -1,23 +1,4 @@
-
    
-   
-   <!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="assetmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-center" id="staticBackdropLabel">New Asset</h5>
-        <button type="button"  data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
-      </div>
-      <div class="modal-body">
-     
-      <form action="{{ route('asset.store') }}" method="POST">
-                                @csrf
-                              
-                           
    <input type="hidden" name="admin_id" value="{{ $admin->id }}">
 
 <div class="row">
@@ -117,7 +98,7 @@
 <div class=" row mt-3">
     <div class="col-auto mx-auto">
         <button type="submit" class="btn btn-warning save">
-            Save Asset
+            Update Asset
         </button>
     </div>
 
@@ -126,15 +107,3 @@
 </div>
 
 
-</form>
-      </div>
-      
-    </div>
-  </div>
-</div>
-   
-   
-   
-   
-   
-   

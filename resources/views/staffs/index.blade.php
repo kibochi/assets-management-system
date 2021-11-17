@@ -9,13 +9,13 @@
         @include('layouts.nav')
         <div class="container">
             <div class="text-center title2 mt-5 mb-3">
-                <h2>Assets</h2>
+                <h2>Staffs</h2>
             </div>
 
             <div class="row">
                 <div class="col-md-10 mx-auto">
                 <button type="button" class="btn btn-success mb-3 " data-bs-toggle="modal" data-bs-target="#assetmodal">
-  <i class=" fa fa-plus"> New Asset</i>
+  <i class=" fa fa-plus"> New Staff</i>
 </button>
                     <div class="wrap">
                         
@@ -25,16 +25,26 @@
                                         <tr>
                                             <th class="text-center">#</th>
                                             <th class="text-center">
-                                                Tag ID
+                                                Staff ID
                                             </th>
                                             <th class="text-center">
-                                                Asset Name
+                                                Firstname
                                             </th>
                                             <th class="text-center">
-                                                Category
+                                                Lastname
                                             </th>
                                             <th class="text-center">
-                                                Purchase Date
+                                                Email
+                                            </th>
+
+                                            <th class="text-center">
+                                               Phone
+                                            </th>
+                                            <th class="text-center">
+                                                Section
+                                            </th>
+                                            <th class="text-center">
+                                                Role
                                             </th>
                                            
                                             <th class="text-center">
@@ -43,29 +53,38 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($sets as $key => $set)
+                                        @foreach ($staffs as $key => $s)
                                             <tr>
                                                 <td class="text-center">
                                                     {{ $key + 1 }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $set->tag_id }}
+                                                    {{ $s->staff_id }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $set->asset_name }}
+                                                    {{ $s->firstname }}
                                                 </td>
 
                                                 <td class="text-center">
-                                                    {{ $set->category }}
+                                                    {{ $s->lastname }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $set->purchase_date }}
+                                                    {{ $s->email }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $s->phone }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $s->section }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $s->role }}
                                                 </td>
 
 
 
                                                 <td class="text-center">
-                                                    <a href="{{ route('asset.show', $set) }}" class="btn  btn-sm">
+                                                    <a href="{{ route('staff.show', $s) }}" class="btn  btn-sm">
                                                         <i class="fa fa-edit"></i></a>
                                                 </td>
 
@@ -83,7 +102,7 @@
                 </div>
             </div>
             
-            @include('forms.asset_form')
+            
 
         </div>
 

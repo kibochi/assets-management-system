@@ -24,3 +24,9 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+
+$("#delete_asset").click(function(){
+    alert("asset will be deleted")
+
+});

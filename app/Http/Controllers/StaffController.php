@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Staff;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -12,9 +13,12 @@ class StaffController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Staff $staff)
     {
-        //
+        $user = auth()->user()->id;
+        $admin = User::where('id', $user)->first();
+        $staffs = Staff::with('user')->where('admin_id',$user)->get();
+        return view('staffs.index',compact('admin','staffs','staff'));
     }
 
     /**

@@ -44,7 +44,7 @@ $("#staff_account").on("click", function(e) {
     });
 });
 
-$("#asset_account").on("click", function(e) {
+$("#delete_asset").on("click", function(e) {
     e.preventDefault();
 
     // var id = $(this).data("id");

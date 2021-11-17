@@ -13,8 +13,18 @@ class CreateStaffTable extends Migration
      */
     public function up()
     {
-        Schema::create('staff', function (Blueprint $table) {
+        Schema::create('staffs', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('admin_id');
+            $table->string('staff_id');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('dob');
+            $table->string('gender');
+            $table->string('role');
+            $table->string('section');
             $table->timestamps();
         });
     }
@@ -26,6 +36,6 @@ class CreateStaffTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('staff');
+        Schema::dropIfExists('staffs');
     }
 }
