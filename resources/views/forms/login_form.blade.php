@@ -1,5 +1,4 @@
-<div class="row">
-     <div class="col-md-12 mx-auto">
+
          <form action="{{ route('login') }}" method="POST">
              @csrf
              {{-- Email --}}
@@ -71,5 +70,4 @@
 
          </form>
 
-     </div>
- </div>
+   

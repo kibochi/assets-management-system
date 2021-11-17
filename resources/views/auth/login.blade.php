@@ -6,7 +6,7 @@
             <div class="big-image title">
                 <h1 class="text-muted font-weight-bold">Not a Member?</h1>
                 <div class="text-center  mt-3">
-                    <a href="{{ route('register') }}" class=" btn btn-outline-dark w-50">Register Now</a>
+                    <a href="{{ route('register') }}" class=" btn btn-outline-dark w-100">Register Now</a>
                 </div>
             </div>
         </div>

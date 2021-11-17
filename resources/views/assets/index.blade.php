@@ -43,7 +43,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($assets as $key => $asset)
+                                        <!-- @foreach ($assets as $key => $asset)
                                             <tr>
                                                 <td class="text-center">
                                                     {{ $key + 1 }}
@@ -74,7 +74,7 @@
 
                                             </tr>
 
-                                        @endforeach
+                                        @endforeach -->
                                     </tbody>
                                 </table>
                             </div>
