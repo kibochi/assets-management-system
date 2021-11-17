@@ -14,7 +14,7 @@
 
             <div class="row">
                 <div class="col-md-10 mx-auto">
-                <button type="button" class="btn btn-success mb-3 " data-bs-toggle="modal" data-bs-target="#assetmodal">
+                <button type="button" class="btn btn-success mb-3 " data-bs-toggle="modal" data-bs-target="#staffmodal">
   <i class=" fa fa-plus"> New Staff</i>
 </button>
                     <div class="wrap">
@@ -102,7 +102,7 @@
                 </div>
             </div>
             
-            
+            @include('forms.staff_form')
 
         </div>
 
