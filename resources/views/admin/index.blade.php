@@ -12,7 +12,9 @@
 
                 </div>
                 <div class="col ml-auto">
-                   <button class="btn btn-success"><i class="fa fa-plus"></i> Lease Asset </button>
+                <button type="button" class="btn btn-success mb-3 " data-bs-toggle="modal" data-bs-target="#leaseasset">
+  <i class=" fa fa-plus"> Lease Asset</i>
+</button>
                 </div>
             </div>
 
@@ -45,7 +47,7 @@
             </div>
 
 
-     
+      @include('forms.lease_asset')
         </div>
     </div>
 

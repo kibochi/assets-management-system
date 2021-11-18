@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LeaseAsset;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Asset;
-use App\Models\Staff;
 
-class AdminController extends Controller
+class LeaseAssetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $user = auth()->user()->id;
-        $admin = User::where('id', $user)->first();
-        $assets = Asset::with('user')->get(['asset_name','tag_id']);
-        $staffs = Staff::with('user')->get(['firstname','staff_id']);
-        return view('admin.index',compact('admin','assets','staffs'));
+        //
     }
 
     /**
@@ -47,23 +41,21 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\LeaseAsset  $leaseAsset
      * @return \Illuminate\Http\Response
      */
-    public function show(User $admin)
+    public function show(LeaseAsset $leaseAsset)
     {
-        // $user = auth()->user()->id;
-        // $admin = User::where('id', $user)->first();
-        return view('admin.show', compact('admin'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\LeaseAsset  $leaseAsset
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(LeaseAsset $leaseAsset)
     {
         //
     }
@@ -72,10 +64,10 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\LeaseAsset  $leaseAsset
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, LeaseAsset $leaseAsset)
     {
         //
     }
@@ -83,10 +75,10 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\LeaseAsset  $leaseAsset
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(LeaseAsset $leaseAsset)
     {
         //
     }
