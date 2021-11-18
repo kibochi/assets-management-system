@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Staff;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreStaffRequest;
+use App\Http\Requests\UpdateStaffRequest;
 
 class StaffController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +18,13 @@ class StaffController extends Controller
      */
     public function index(Staff $staff)
     {
+        
         $user = auth()->user()->id;
         $admin = User::where('id', $user)->first();
         $staffs = Staff::with('user')->where('admin_id',$user)->get();
-        return view('staffs.index',compact('admin','staffs','staff'));
+        $staff_id = $this->rollNo();
+        return view('staffs.index',compact('admin','staffs','staff','staff_id'));
+        
     }
 
     /**
@@ -37,9 +43,10 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreStaffRequest $request)
     {
-        //
+        $staff = Staff::create($request->validated());
+        return redirect()->back();
     }
 
     /**
@@ -50,7 +57,9 @@ class StaffController extends Controller
      */
     public function show(Staff $staff)
     {
-        //
+        $user = auth()->user()->id;
+        $admin = User::where('id', $user)->first();
+        return view('staffs.show',compact('admin','staff'));
     }
 
     /**
@@ -71,9 +80,10 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Staff $staff)
+    public function update(UpdateStaffRequest $request, Staff $staff)
     {
-        //
+        $staff->update($request->validated());
+        return redirect()->back();
     }
 
     /**
@@ -85,5 +95,16 @@ class StaffController extends Controller
     public function destroy(Staff $staff)
     {
         //
+    }
+
+    private function rollNo(){
+        $user = auth()->user()->id;
+        $staff = Staff::where('admin_id', $user)->get();
+        $staffno = $staff->count() + 1;
+        $staff_id = "St" . "/" . $staffno . "/". date('Y'); 
+
+    
+
+       return $staff_id;
     }
 }

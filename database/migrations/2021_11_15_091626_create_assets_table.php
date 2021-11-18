@@ -20,6 +20,8 @@ class CreateAssetsTable extends Migration
             $table->string('tag_id');
             $table->string('category');
             $table->string('purchase_date');
+            $table->string('quantity');
+            $table->string('uom');
             $table->timestamps();
         });
         

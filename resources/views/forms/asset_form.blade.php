@@ -22,6 +22,7 @@
 
 <div class="row">
 
+
     <!-- First Name -->
     <div class="col-md-6">
         <div class="form-group ">
@@ -52,7 +53,7 @@
                     
                     <input type="text" class="form-control @error('tag_id') is-invalid @enderror"
                         placeholder="asset tag id" name="tag_id" 
-                        value="{{ old('tag_id') ?? $asset->tag_id}}" autofocus />
+                        value="{{ $tag_id}}" readonly />
 
                     @error('tag_id')
                         <span class="invalid-feedback" role="alert">
@@ -112,11 +113,56 @@
 </div>
 
 
+<div class="row">
+<div class="col-md-5">
+        <div class="form-group ">
+            <label for="auantity">Quantity</label>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <input type="text" class="form-control @error('quantity') is-invalid @enderror"
+                        placeholder="Quantity i.e 20" name="quantity" 
+                        value="{{ old('quantity') ?? $asset->quantity }}" required />
+
+                    @error('quantity')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="form-group ">
+            <label for="category">Unit of Measurements:</label>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                   
+                    <select name="uom" 
+                        class="form-control @error('uom') is-invalid @enderror" autofocus>
+                        <option disabled selected>Asset Category</option>
+                        <option>Litres</option>
+                        <option>Pieces</option>
+                    </select>
+
+                    @error('uom')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+</div>
+
+
 
 <!-- Submit Button -->
 <div class=" row mt-3">
     <div class="col-auto mx-auto">
-        <button type="submit" class="btn btn-warning save">
+        <button type="submit" class="btn btn-outline-light">
             Save Asset
         </button>
     </div>

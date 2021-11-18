@@ -1,20 +1,4 @@
 
-   
-   
-   <!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="staffmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-center" id="staticBackdropLabel">New Staff</h5>
-        <button type="button"  data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
-      </div>
-      <div class="modal-body">
-          <form action="{{route('staff.store')}}" method="post">
-                      @csrf
           <input type="hidden" name="admin_id" value="{{ $admin->id }}">
           <div class="row">
           <div class="col-md-12">
@@ -25,7 +9,7 @@
                   
                     <input type="text" class="form-control @error('staff_id') is-invalid @enderror"
                       name="staff_id" 
-                        value="{{ $staff_id }}" readonly/>
+                        value="{{ $staff_id  ?? $staff->staff_id}}" readonly/>
                     @error('staff_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -226,7 +210,7 @@
 <!-- Submit Button -->
 <div class=" row mt-3">
     <div class="col-auto mx-auto">
-        <button type="submit" class="btn btn-outline-light">
+        <button type="submit" class="btn btn-outline-success">
             Save Employee
         </button>
     </div>
@@ -235,16 +219,3 @@
 
 </div>
 
-</form>
-  
-      </div>
-      
-    </div>
-  </div>
-</div>
-   
-   
-   
-   
-   
-   

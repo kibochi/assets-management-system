@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAssetRequest extends FormRequest
+class UpdateStaffRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +25,15 @@ class StoreAssetRequest extends FormRequest
     {
         return [
             'admin_id'  => 'required',
-            'asset_name' => 'required|min:3|unique:assets,asset_name', 
-            'tag_id' => 'required|min:3|unique:assets,tag_id',
-            'category' => 'required|min:3',
-            'purchase_date' => 'required|date',
-            'quantity' => 'required|numeric|min:1',
-            'uom' => 'required',
-          
+            'staff_id' => 'required|min:3', 
+            'firstname' => 'required|min:3',
+            'lastname' => 'required|min:3',
+            'email' => 'required|email',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/','min:10',
+            'dob' => 'required|date',
+            'gender' => 'required',
+            'role' => 'required',
+            'section' => 'required',
         ];
     }
 }

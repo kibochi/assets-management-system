@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStaffTable extends Migration
+class CreateStaffsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,8 +23,8 @@ class CreateStaffTable extends Migration
             $table->string('phone');
             $table->string('dob');
             $table->string('gender');
-            $table->string('role');
             $table->string('section');
+            $table->string('role');
             $table->timestamps();
         });
     }

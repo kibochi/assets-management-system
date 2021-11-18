@@ -8,26 +8,32 @@
         <div class="container">
 
             <div class="text-center title2 mt-5 mb-3">
-                <h2>Update Asset</h2>
+                <h2>Asset Profile</h2>
             </div>
             <div class="row">
-                <div class="col-md-8 mx-auto">
+                <div class="col-md-6 mx-auto">
                     <a href="{{ route('asset.index') }}" class="btn btn-sm btn-success mb-3 py-3 px-4 "><i
                             class="fa fa-hand-point-left"></i> All Assets
                     </a>
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('asset.update', $asset) }}" method="POST">
+                           
                                 @method('PATCH')
                                 @csrf
                                 @include('forms.edit_asset')
 
-                            </form>
+                         
 
                         </div>
                         <div class="card-footer">
                             <div class="row">
+                            <div class="col-auto mr-auto">
+                            <button type="button" id="delete_asset" class="btn btn-success">
+                                        Update  Asset
+                                    </button>
+                            </div>
                                 <div class="col-auto ml-auto">
+                                
                                     <button type="button" id="delete_asset" class="btn btn-danger">
                                         Delete Asset
                                     </button>

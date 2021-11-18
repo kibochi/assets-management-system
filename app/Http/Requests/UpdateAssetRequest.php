@@ -13,7 +13,7 @@ class UpdateAssetRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class UpdateAssetRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'admin_id'  => 'required',
+            'asset_name' => 'required|min:3', 
+            'tag_id' => 'required|min:3',
+            'category' => 'required|min:3',
+            'purchase_date' => 'required|date',
+          
         ];
     }
 }
+
+

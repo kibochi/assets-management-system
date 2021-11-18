@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asset;
 use App\Http\Requests\StoreAssetRequest;
+use App\Http\Requests\UpdateAssetRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Staff;
@@ -20,7 +21,8 @@ class AssetController extends Controller
         $user = auth()->user()->id;
         $admin = User::where('id', $user)->first();
         $sets = Asset::with('user')->where('admin_id',$user)->get();
-        return view('assets.index',compact('admin','sets','asset'));
+        $tag_id = $this->tagId();
+        return view('assets.index',compact('admin','sets','asset','tag_id'));
     }
 
     /**
@@ -70,7 +72,9 @@ class AssetController extends Controller
      */
     public function edit(Asset $asset)
     {
-        //
+        $user = auth()->user()->id;
+        $admin = User::where('id', $user)->first();
+        return view('assets.edit',compact('asset','admin'));
     }
 
     /**
@@ -80,7 +84,7 @@ class AssetController extends Controller
      * @param  \App\Models\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreAssetRequest $request, Asset $asset)
+    public function update(UpdateAssetRequest $request, Asset $asset)
     {
         $asset->update($request->validated());
         return redirect()->back();
@@ -96,5 +100,13 @@ class AssetController extends Controller
     {
         $asset->delete();
         return redirect('/asset');
+    }
+
+    private function tagId(){
+        $user = auth()->user()->id;
+        $assets = Asset::where('admin_id', $user)->get();
+        $assetno = $assets->count() + 1;
+        $tag_id = "Asset" . "/" . $assetno . "/". date('Y'); 
+       return $tag_id;
     }
 }

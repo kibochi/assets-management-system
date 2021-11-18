@@ -14,7 +14,7 @@ class Asset extends Model
     protected $primaryKey = "id";
     protected $fillable = 
     [
-        'admin_id','asset_name','tag_id','category','purchase_date',
+        'admin_id','asset_name','tag_id','category','purchase_date','quantity','uom',
     ];
 
 
