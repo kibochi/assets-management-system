@@ -65,7 +65,7 @@
 
 
                                                 <td class="text-center">
-                                                    <a href="{{ route('asset.edit', $set) }}" class="btn  btn-sm">
+                                                    <a href="{{ route('asset.show', $set) }}" class="btn  btn-sm">
                                                         <i class="fa fa-edit"></i></a>
                                                 </td>
 

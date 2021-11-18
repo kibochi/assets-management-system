@@ -21,7 +21,7 @@ $("#delete_account").on("click", function(e) {
     });
 });
 
-$("#staff_account").on("click", function(e) {
+$("#delete_staff").on("click", function(e) {
     e.preventDefault();
 
     // var id = $(this).data("id");
@@ -39,7 +39,7 @@ $("#staff_account").on("click", function(e) {
         if (result.isConfirmed) {
             var form = document.getElementById("staff_delete").submit();
 
-            Swal.fire("Deleted!", "Account has been deleted.", "success");
+            Swal.fire("Deleted!", "Staff has been deleted.", "success");
         }
     });
 });

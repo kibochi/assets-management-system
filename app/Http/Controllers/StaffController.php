@@ -94,7 +94,8 @@ class StaffController extends Controller
      */
     public function destroy(Staff $staff)
     {
-        //
+        $staff->delete();
+        return redirect('/staff');
     }
 
     private function rollNo(){

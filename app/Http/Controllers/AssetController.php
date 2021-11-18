@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Staff;
 
+
 class AssetController extends Controller
 {
     /**
@@ -22,6 +23,7 @@ class AssetController extends Controller
         $admin = User::where('id', $user)->first();
         $sets = Asset::with('user')->where('admin_id',$user)->get();
         $tag_id = $this->tagId();
+       
         return view('assets.index',compact('admin','sets','asset','tag_id'));
     }
 
@@ -61,6 +63,8 @@ class AssetController extends Controller
     {
         $user = auth()->user()->id;
         $admin = User::where('id', $user)->first();
+        $code = Asset::get(['tag_id']);
+       
         return view('assets.show',compact('asset','admin'));
     }
 
@@ -74,6 +78,8 @@ class AssetController extends Controller
     {
         $user = auth()->user()->id;
         $admin = User::where('id', $user)->first();
+        
+        
         return view('assets.edit',compact('asset','admin'));
     }
 

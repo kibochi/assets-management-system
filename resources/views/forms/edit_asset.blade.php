@@ -3,11 +3,15 @@
 
 
                    <div class="row">
-                      <div class="col-sm-5">
-                          <h6 class="mb-0">Asset Code</h6>
+                      <div class="col-sm-3">barcode</h6>
                       </div>
-                      <div class="col-sm-7 text-secondary">
-                          {!! DNS1D::getBarcodeHTML('4445645656', 'UPCA') !!}
+                      <div class="col-sm-9 text-secondary">
+                      @php
+    $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+@endphp
+   
+{!! $generator->getBarcode($asset->tag_id, $generator::TYPE_CODE_128) !!}
+   
                       </div>
                   </div>
                   <hr>

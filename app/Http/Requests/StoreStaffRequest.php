@@ -25,7 +25,7 @@ class StoreStaffRequest extends FormRequest
     {
         return  [
             'admin_id'  => 'required',
-            'staff_id' => 'required|min:3|unique:staffs, staff_id', 
+            'staff_id' => 'required|min:3|unique:staffs,staff_id', 
             'firstname' => 'required|min:3',
             'lastname' => 'required|min:3',
             'email' => 'required|email|unique:staffs,email',
