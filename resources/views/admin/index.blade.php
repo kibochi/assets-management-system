@@ -6,7 +6,7 @@
         @include('layouts.nav')
 
         <div class="container">
-            <div class="row m-5">
+            <div class="row mt-3 mb">
                 <div class="col ">
                     <p>Welcome back, <b>Admin</b></p>
 
@@ -18,9 +18,7 @@
                 <button type="button" class="btn btn-success mb-3 " data-bs-toggle="modal" data-bs-target="#leaseasset">
   <i class=" fa fa-plus"> Lease Asset</i>
 </button>
-<button type="button" class="btn btn-success mb-3 " data-bs-toggle="modal" data-bs-target="#leaseasset">
-  <i class=" fa fa-plus"> Lease Asset</i>
-</button>
+
                 </div>
             </div>
 
@@ -38,10 +36,10 @@
                                                 Asset Name
                                             </th>
                                             <th class="text-center">
-                                                Category
+                                                Leased To
                                             </th>
                                             <th class="text-center">
-                                                Purchase Date
+                                               Leased Date
                                             </th>
                                            
                                             <th class="text-center">
@@ -50,6 +48,37 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach ($leased_staff as $key => $lease)
+                                            <tr>
+                                                <td class="text-center">
+                                                    {{ $key + 1 }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $lease->asset->tag_id }}
+                                                </td>
+                                                <td class="text-center">
+                                                {{ $lease->asset->asset_name }}
+                                                </td>
+
+                                                <td class="text-center">
+                                                {{ $lease->staff->firstname }} {{ $lease->staff->lastname }}
+                                                </td>
+                                                <td class="text-center">
+                                                {{ $lease->lease_date }}
+                                                </td>
+
+
+
+                                                <td class="text-center">
+                                                  
+                                                </td>
+
+
+
+
+                                            </tr>
+
+                                        @endforeach
                                        
                                     </tbody>
                                 </table>

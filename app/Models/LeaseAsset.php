@@ -21,12 +21,12 @@ class LeaseAsset extends Model
     ];
 
 
-    public function staffs(){
-        return $this->hasMany(Staff::class)
+    public function staff(){
+        return $this->belongsTo(Staff::class, 'staff_id');
     }
 
-    public function Assets(){
-        return $this->hasMany(Asset::class)
+    public function asset(){
+        return $this->belongsTo(Asset::class, 'asset_id');
     }
 
 

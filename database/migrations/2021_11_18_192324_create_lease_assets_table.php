@@ -15,13 +15,17 @@ class CreateLeaseAssetsTable extends Migration
     {
         Schema::create('lease_assets', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('admin_id');
-            $table->string('asset_id');
-            $table->string('staff_id');
-            $table->string('leased_date');
+            $table->unsignedBigInteger('admin_id');
+            $table->unsignedBigInteger('asset_id');
+            $table->unsignedBigInteger('staff_id');
+            $table->string('lease_date');
             $table->string('quantity');
             $table->boolean('isReturned')->default(0);
             $table->timestamps();
+         
+            $table->foreign('admin_id')->references('id')->on('users');
+            $table->foreign('staff_id')->references('id')->on('staffs');
+            $table->foreign('asset_id')->references('id')->on('assets');
 
             
         });

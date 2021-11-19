@@ -25,7 +25,7 @@
                     <select name="asset_id" class="form-control @error('uom') is-invalid @enderror" autofocus>
                         <option disabled selected>Asset Leased</option>
                         @foreach($assets as $key => $asset)
-                        <option value="{{$asset->tag_id}}">{{$asset->asset_name}}</option>
+                        <option value="{{$asset->id}}">{{$asset->asset_name}}</option>
                         @endforeach
                     </select>
 
@@ -47,7 +47,7 @@
                     <select name="staff_id" class="form-control @error('uom') is-invalid @enderror" autofocus>
                         <option disabled selected>Employee leasing</option>
                         @foreach($staffs as $key => $staff)
-                        <option value="{{$staff->staff_id}}">{{$staff->firstname}}</option>
+                        <option value="{{$staff->id}}">{{$staff->firstname}}</option>
                         @endforeach
                     </select>
 
@@ -70,10 +70,10 @@
                 <div class="input-group">
                   
                     <input type="date" class="form-control @error('purchase_date') is-invalid @enderror"
-                        placeholder="Purchase Date" name="purchase_date" 
-                        value="{{ old('purchase_date') ?? $asset->purchase_date }}" required />
+                        placeholder="Leased Date" name="lease_date" 
+                        value="{{ old('lease_date') ?? $asset->lease_date }}" required />
 
-                    @error('purchase_date')
+                    @error('lease_date')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

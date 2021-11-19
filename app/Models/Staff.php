@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Asset;
+use App\Models\LeaseAsset;
 class Staff extends Model
 {
     use HasFactory;
@@ -25,6 +26,11 @@ class Staff extends Model
     public function assets(){
         return $this->hasMany(Asset::class);
     }
+    
+    public function asset_lease(){
+        return $this->belongsTo(LeaseAsset::class);
+    }
+
 
 
 }

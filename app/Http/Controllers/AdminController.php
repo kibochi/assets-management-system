@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Asset;
 use App\Models\Staff;
+use App\Models\LeaseAsset;
 
 class AdminController extends Controller
 {
@@ -18,9 +19,11 @@ class AdminController extends Controller
     {
         $user = auth()->user()->id;
         $admin = User::where('id', $user)->first();
-        $assets = Asset::with('user')->get(['asset_name','tag_id']);
-        $staffs = Staff::with('user')->get(['firstname','staff_id']);
-        return view('admin.index',compact('admin','assets','staffs'));
+        $assets = Asset::with('user')->where('admin_id', $user)->get();
+        $staffs = Staff::with('user')->where('admin_id', $user)->get();
+        $leased_staff = LeaseAsset::with(['staff','asset'])->where('admin_id', $user)->get();
+       
+        return view('admin.index',compact('admin','assets','staffs','leased_staff'));
     }
 
     /**

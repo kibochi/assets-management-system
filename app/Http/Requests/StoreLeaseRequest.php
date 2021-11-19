@@ -25,6 +25,7 @@ class StoreLeaseRequest extends FormRequest
     {
         return [
             'admin_id' => 'required',
+            'asset_id' => 'required',
             'staff_id' => 'required',
             'lease_date' => 'required',
             'quantity' => 'required|numeric|min:1',
