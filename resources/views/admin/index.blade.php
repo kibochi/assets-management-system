@@ -13,14 +13,18 @@
                 </div>
                 
             </div>
+            <hr>
             <div class="row tm-content-row">
             <div class="col-auto ml-auto">
                 <button type="button" class="btn btn-success mb-3 " data-bs-toggle="modal" data-bs-target="#leaseasset">
   <i class=" fa fa-plus"> Lease Asset</i>
 </button>
-
+<button type="button" class="btn btn-dark mb-3 " data-bs-toggle="modal" data-bs-target="#leaseasset">
+  <i class=" fa fa-plus"> Receieve Asset</i>
+</button>
                 </div>
             </div>
+            <hr>
 
             <div class="row tm-content-row">
                 <div class ="col-sm-8 col-md-8 col-lg-8 tm-block-col">
@@ -48,7 +52,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($leased_staff as $key => $lease)
+                                    @foreach ($leased as $key => $lease)
                                             <tr>
                                                 <td class="text-center">
                                                     {{ $key + 1 }}
@@ -67,9 +71,12 @@
                                                 {{ $lease->lease_date }}
                                                 </td>
 
-
-
                                                 <td class="text-center">
+                                                    @if( $lease->status == "0")
+                                                        <span class="badge badge-danger">Not Returned</span>
+                                                    @else
+                                                          <span class="badge badge-success">Returned</span>
+                                                    @endif
                                                   
                                                 </td>
 
@@ -88,10 +95,16 @@
 
             <div class="col-sm-4 col-md-4 col-lg-4 tm-block-col">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-10 ml-auto">
                     <div class="card card-three">
             <div class="card-body">
-            Employees
+            <div class="row">
+            <p class="px-2">All Assets</p>
+                <div class="col-auto ml-auto">
+                <h4>{{$assets->count()}}</h4>
+                    
+</div>
+            </div>
 
             </div>
             </div>
@@ -100,10 +113,17 @@
 
                </div>
                <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-10 ml-auto">
                     <div class="card card-one">
             <div class="card-body">
-            Employees
+           
+            <div class="row">
+            <p class="px-2">Leased Asset</p>
+                <div class="col-auto ml-auto">
+                <h4>{{$leased->count()}}</h4>
+                    
+</div>
+            </div>
 
             </div>
             </div>
@@ -112,10 +132,16 @@
 
                </div>
                <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-10 ml-auto">
                     <div class="card card-two">
             <div class="card-body">
-            Employees
+            <div class="row">
+            <p class="px-2">Empoyees</p>
+                <div class="col-auto ml-auto">
+                <h4>{{$staffs->count()}}</h4>
+                    
+</div>
+            </div>
 
             </div>
             </div>

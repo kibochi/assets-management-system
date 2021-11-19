@@ -20,7 +20,7 @@ class CreateLeaseAssetsTable extends Migration
             $table->unsignedBigInteger('staff_id');
             $table->string('lease_date');
             $table->string('quantity');
-            $table->boolean('isReturned')->default(0);
+            $table->boolean('status')->default(0);
             $table->timestamps();
          
             $table->foreign('admin_id')->references('id')->on('users');

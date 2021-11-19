@@ -136,13 +136,16 @@ border-bottom: 5px solid #17b978;
 }
 
 .card-one{
-    border-left:10px solid #17b978;
+    border-right:10px solid #17b978;
 }
 .card-two{
-    border-left:10px solid #f5a623;
+    border-right:10px solid #f5a623;
 }
 
 .card-three{
-    border-left:10px solid #000000;
+    border-right:10px solid #000000;
 }
 
+.badge{
+    font-size: 15px;
+}
