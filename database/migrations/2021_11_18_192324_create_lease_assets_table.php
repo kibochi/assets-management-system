@@ -18,8 +18,8 @@ class CreateLeaseAssetsTable extends Migration
             $table->bigInteger('admin_id');
             $table->string('asset_id');
             $table->string('staff_id');
-            $table->string('leased_by');
             $table->string('leased_date');
+            $table->string('quantity');
             $table->boolean('isReturned')->default(0);
             $table->timestamps();
 

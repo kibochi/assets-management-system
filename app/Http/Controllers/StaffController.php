@@ -102,7 +102,7 @@ class StaffController extends Controller
         $user = auth()->user()->id;
         $staff = Staff::where('admin_id', $user)->get();
         $staffno = $staff->count() + 1;
-        $staff_id = "St" . "/" . $staffno . "/". date('Y'); 
+        $staff_id = "St" . "/" . $staffno . "/". $user. "/". date('Y'); 
 
     
 

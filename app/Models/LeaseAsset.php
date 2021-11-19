@@ -17,7 +17,7 @@ class LeaseAsset extends Model
 
 
     protected $fillable = [
-        'admin_id','asset_id','staff_id','leased_by','lease_date'
+        'admin_id','asset_id','staff_id','lease_date','quantity',
     ];
 
 

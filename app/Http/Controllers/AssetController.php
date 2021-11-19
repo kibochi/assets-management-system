@@ -112,7 +112,7 @@ class AssetController extends Controller
         $user = auth()->user()->id;
         $assets = Asset::where('admin_id', $user)->get();
         $assetno = $assets->count() + 1;
-        $tag_id = "Asset" . "/" . $assetno . "/". date('Y'); 
+        $tag_id = "Asset" . "/" . $assetno . "/". $user. "/". date('Y'); 
        return $tag_id;
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\LeaseAssetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/{admin}',[AdminController::class, 'show'])->name('admin.show');
     Route::resource('/asset', AssetController::class);
     Route::resource('/staff', StaffController::class);
+    Route::resource('/lease', LeaseAssetController::class);
 });
 
 

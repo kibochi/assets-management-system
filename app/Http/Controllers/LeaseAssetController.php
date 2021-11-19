@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LeaseAsset;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreLeaseRequest;
 class LeaseAssetController extends Controller
 {
     /**
@@ -33,9 +33,10 @@ class LeaseAssetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreLeaseRequest $request)
     {
-        //
+        $lease=LeaseAsset::create($request->validated());
+        return back();
     }
 
     /**
@@ -69,7 +70,8 @@ class LeaseAssetController extends Controller
      */
     public function update(Request $request, LeaseAsset $leaseAsset)
     {
-        //
+        $leaseAsset->update($request->validated());
+        return back();
     }
 
     /**
@@ -80,6 +82,6 @@ class LeaseAssetController extends Controller
      */
     public function destroy(LeaseAsset $leaseAsset)
     {
-        //
+       
     }
 }
