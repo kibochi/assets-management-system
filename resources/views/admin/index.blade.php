@@ -19,9 +19,7 @@
                 <button type="button" class="btn btn-success mb-3 " data-bs-toggle="modal" data-bs-target="#leaseasset">
   <i class=" fa fa-plus"> Lease Asset</i>
 </button>
-<button type="button" class="btn btn-dark mb-3 " data-bs-toggle="modal" data-bs-target="#leaseasset">
-  <i class=" fa fa-plus"> Receieve Asset</i>
-</button>
+
                 </div>
             </div>
             <hr>
@@ -52,7 +50,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($leased as $key => $lease)
+                                    
+                                    @foreach($leased as $key => $lease)
                                             <tr>
                                                 <td class="text-center">
                                                     {{ $key + 1 }}
@@ -120,7 +119,7 @@
             <div class="row">
             <p class="px-2">Leased Asset</p>
                 <div class="col-auto ml-auto">
-                <h4>{{$leased->count()}}</h4>
+                <h4>{{$leased ?? ''->count()}}</h4>
                     
 </div>
             </div>

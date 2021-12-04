@@ -22,12 +22,12 @@ Route::get('/', function () {
     return view('admin.index');
 });
 
-
+Route::get('/', [HomeController::class, 'index']);
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+  
     Route::resource('/admin', AdminController::class);
-    Route::get('/admin/{admin}',[AdminController::class, 'show'])->name('admin.show');
+    // Route::get('/admin/{admin}',[AdminController::class, 'show'])->name('admin.show');
     Route::resource('/asset', AssetController::class);
     Route::resource('/staff', StaffController::class);
     Route::resource('/lease', LeaseAssetController::class);
