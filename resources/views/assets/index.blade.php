@@ -34,6 +34,14 @@
                                                 Category
                                             </th>
                                             <th class="text-center">
+                                                Qty Purchased
+                                            </th>
+                                            <th class="text-center">
+                                                Qty leased
+                                            </th>
+
+                                            
+                                            <th class="text-center">
                                                 Purchase Date
                                             </th>
                                            
@@ -43,23 +51,30 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($sets as $key => $set)
+                                        @foreach ($leased as $key => $set)
                                             <tr>
                                                 <td class="text-center">
                                                     {{ $key + 1 }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $set->tag_id }}
+                                                    {{ $set->asset->tag_id }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $set->asset_name }}
+                                                    {{ $set->asset->asset_name }}
                                                 </td>
 
                                                 <td class="text-center">
-                                                    {{ $set->category }}
+                                                    {{ $set->asset->category }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $set->purchase_date }}
+                                                    {{ $set->asset->quantity }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ $set->quantity }}
+                                                </td>
+                                              
+                                                <td class="text-center">
+                                                    {{ $set->asset->purchase_date }}
                                                 </td>
 
 
