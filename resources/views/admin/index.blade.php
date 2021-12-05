@@ -25,7 +25,7 @@
             <hr>
 
             <div class="row tm-content-row">
-                <div class ="col-sm-8 col-md-8 col-lg-8 tm-block-col">
+                <div class ="col-sm-9 col-md-9 col-lg-9 tm-block-col">
                 <div class="table-responsive">
                                 <table class="table table-fixed table-bordered table-stripped " id="myTable">
                                     <thead class="table-dark">
@@ -39,6 +39,9 @@
                                             </th>
                                             <th class="text-center">
                                                 Leased To
+                                            </th>
+                                            <th class="text-center">
+                                                Quantity
                                             </th>
                                             <th class="text-center">
                                                Leased Date
@@ -67,6 +70,9 @@
                                                 {{ $lease->staff->firstname }} {{ $lease->staff->lastname }}
                                                 </td>
                                                 <td class="text-center">
+                                                {{ $lease->quantity}}
+                                                </td>
+                                                <td class="text-center">
                                                 {{ $lease->lease_date }}
                                                 </td>
 
@@ -92,13 +98,13 @@
 </div>
 
 
-            <div class="col-sm-4 col-md-4 col-lg-4 tm-block-col">
+            <div class="col-sm-3 col-md-3 col-lg-3 tm-block-col">
                 <div class="row">
                     <div class="col-md-10 ml-auto">
                     <div class="card card-three">
             <div class="card-body">
             <div class="row">
-            <p class="px-2">All Assets</p>
+            <a href="{{route('asset.index')}}" class="px-2">All Assets</a>
                 <div class="col-auto ml-auto">
                 <h4>{{$assets->count()}}</h4>
                     
@@ -119,7 +125,7 @@
             <div class="row">
             <p class="px-2">Leased Asset</p>
                 <div class="col-auto ml-auto">
-                <h4>{{$leased ?? ''->count()}}</h4>
+                <h4>{{$leased->count()}}</h4>
                     
 </div>
             </div>
@@ -135,7 +141,7 @@
                     <div class="card card-two">
             <div class="card-body">
             <div class="row">
-            <p class="px-2">Empoyees</p>
+            <a href="{{route('staff.index')}}" class="px-2">Empoyees</a>
                 <div class="col-auto ml-auto">
                 <h4>{{$staffs->count()}}</h4>
                     

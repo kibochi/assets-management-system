@@ -89,7 +89,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control @error('quantity') is-invalid @enderror"
                         placeholder="Quantity i.e 20" name="quantity" 
-                        value="{{ old('quantity') ?? $asset->quantity }}" required />
+                        value="{{ old('quantity')}}" required />
 
                     @error('quantity')
                         <span class="invalid-feedback" role="alert">

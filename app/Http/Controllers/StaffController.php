@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreStaffRequest;
 use App\Http\Requests\UpdateStaffRequest;
+use Brian2694\Toastr\Facades\Toastr;
 
 class StaffController extends Controller
 {
@@ -46,6 +47,7 @@ class StaffController extends Controller
     public function store(StoreStaffRequest $request)
     {
         $staff = Staff::create($request->validated());
+        Toastr::success('Staff added successfully :)','Success');
         return redirect()->back();
     }
 
@@ -83,6 +85,7 @@ class StaffController extends Controller
     public function update(UpdateStaffRequest $request, Staff $staff)
     {
         $staff->update($request->validated());
+        Toastr::success('Staff Updated successfully :)','Success');
         return redirect()->back();
     }
 

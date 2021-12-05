@@ -7,7 +7,9 @@ use App\Http\Requests\StoreAssetRequest;
 use App\Http\Requests\UpdateAssetRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\LeaseAsset;
 use App\Models\Staff;
+use Brian2694\Toastr\Facades\Toastr;
 
 
 class AssetController extends Controller
@@ -21,10 +23,12 @@ class AssetController extends Controller
     {
         $user = auth()->user()->id;
         $admin = User::where('id', $user)->first();
-        $sets = Asset::with('user')->where('admin_id',$user)->get();
+        // $sets = Asset::with('user')->where('admin_id',$user)->get();
+        $leased = LeaseAsset::with(['user','staff','asset'])->where('admin_id',$user)->get();
+        
         $tag_id = $this->tagId();
        
-        return view('assets.index',compact('admin','sets','asset','tag_id'));
+        return view('assets.index',compact('admin','leased','asset','tag_id'));
     }
 
     /**
@@ -50,6 +54,7 @@ class AssetController extends Controller
     public function store(StoreAssetRequest $request)
     {
         $assets = Asset::create($request->validated());
+        Toastr::success('Asset added successfully :)','Success');
         return redirect()->back();
     }
 
@@ -63,6 +68,7 @@ class AssetController extends Controller
     {
         $user = auth()->user()->id;
         $admin = User::where('id', $user)->first();
+        
         $code = Asset::get(['tag_id']);
        
         return view('assets.show',compact('asset','admin'));
@@ -93,6 +99,7 @@ class AssetController extends Controller
     public function update(UpdateAssetRequest $request, Asset $asset)
     {
         $asset->update($request->validated());
+        Toastr::success('Asset Updated successfully :)','Success');
         return redirect()->back();
     }
 

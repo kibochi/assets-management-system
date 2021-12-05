@@ -21,7 +21,7 @@ class AdminController extends Controller
         $admin = User::where('id', $user)->first();
         $assets = Asset::with('user')->where('admin_id', $user)->get();
         $staffs = Staff::with('user')->where('admin_id', $user)->get();
-        $leased = LeaseAsset::with(['staff','asset'])->where('admin_id', $user)->get();
+        $leased = LeaseAsset::with(['user','staff','asset'])->where('admin_id', $user)->get();
         
         return view('admin.index',compact('admin','assets','staffs','leased'));
     }
