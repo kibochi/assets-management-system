@@ -23,12 +23,12 @@ class AssetController extends Controller
     {
         $user = auth()->user()->id;
         $admin = User::where('id', $user)->first();
-        // $sets = Asset::with('user')->where('admin_id',$user)->get();
-        $leased = LeaseAsset::with(['user','staff','asset'])->where('admin_id',$user)->get();
-        
+        $sets = Asset::with(['user'])->where('admin_id',$user)->get();
+     
+       
         $tag_id = $this->tagId();
        
-        return view('assets.index',compact('admin','leased','asset','tag_id'));
+        return view('assets.index',compact('admin','sets','asset','tag_id'));
     }
 
     /**
