@@ -23,9 +23,9 @@ class CreateLeaseAssetsTable extends Migration
             $table->boolean('status')->default(0);
             $table->timestamps();
          
-            $table->foreign('admin_id')->references('id')->on('users');
-            $table->foreign('staff_id')->references('id')->on('staffs');
-            $table->foreign('asset_id')->references('id')->on('assets');
+            $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->foreign('staff_id')->references('id')->on('staffs')->onDelete('cascade');
+            $table->foreign('asset_id')->references('id')->on('assets')->onDelete('cascade');;
 
             
         });
